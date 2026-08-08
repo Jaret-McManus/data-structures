@@ -1,4 +1,6 @@
 mod node;
+use std::{intrinsics::abort, ptr::null};
+
 use node::Node;
 
 pub struct Heap<T: Ord> {
@@ -14,4 +16,8 @@ impl<T: Ord> Heap<T> {
         let node = Node::<T>::new(value);
         return Heap { root: Some(node) };
     }
+
+    pub fn insert(&self, value: T) -> () {
+        let mut curr_possible_node = &self.root;
+    } 
 }
