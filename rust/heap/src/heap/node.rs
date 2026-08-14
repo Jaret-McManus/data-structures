@@ -1,9 +1,9 @@
 use std::cmp::Ordering;
 
 pub struct Node<T: Ord> {
-    value: T,
-    left: Option< Box<Node<T>> >,
-    right: Option< Box<Node<T>> >
+    pub value: T,
+    pub left: Option< Box<Node<T>> >,
+    pub right: Option< Box<Node<T>> >
 }
 
 impl<T: Ord> Node<T> {
@@ -12,6 +12,10 @@ impl<T: Ord> Node<T> {
             value: value,
             left: None, right: None
         };
+    }
+
+    pub fn new_boxed(value: T) -> Box<Node<T>> {
+        return Box::from( Node::new(value) );
     }
 }
 
